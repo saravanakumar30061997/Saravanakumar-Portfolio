@@ -17,7 +17,7 @@
         project{{ context.count | pluralize }}.
     </h4>
 
-    <!-- Portfolio Items -->
+    <!-- project items -->
     <div class="row g-4">
         {% for item in page_obj %}
         <div class="col-md-6 col-lg-4">
@@ -26,7 +26,11 @@
                     <img src="{{ item.image.url }}" class="card-img-top rounded-top" alt="{{ item.title }}">
                 {% endif %}
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-dark fw-bold">{{ item.title }}</h5> <!-- Darker title -->
+                    <h5 class="card-title fw-bold">
+                        <a href="{% url 'projects:pro-detail' item.id %}" class="text-dark text-decoration-none">
+                            {{ item.title }}
+                        </a>
+                    </h5>
                     <p class="card-text text-muted">{{ item.description|truncatewords:20 }}</p>
                     <div class="mt-auto">
                         <a href="{% url 'projects:pro-detail' item.id %}" class="btn btn-primary btn-sm w-100" target="_self" rel="noopener noreferrer">View More</a>
@@ -38,6 +42,7 @@
         <p class="text-center">No portfolio items available.</p>
         {% endfor %}
     </div>
+    
     <!-- Bootstrap Paginator -->
     <nav aria-label="Page navigation" class="d-flex justify-content-center mt-4">
         <ul class="pagination">
