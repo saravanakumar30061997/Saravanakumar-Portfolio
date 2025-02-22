@@ -1,4 +1,6 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 class PortfolioItem(models.Model):
@@ -8,7 +10,7 @@ class PortfolioItem(models.Model):
     title = models.CharField(max_length=100)
     item_type = models.CharField(max_length=20, choices=ITEM_TYPES, null=True)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='portfolio')
+    image = CloudinaryField('portfolio')
     url = models.URLField(blank=True)
 
     def __str__(self):
