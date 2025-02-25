@@ -10,4 +10,4 @@ def skills_detail(request,skill_id):
     skill = get_object_or_404(Skills,id=skill_id)
     certifications = skill.certifications.all()
     projects = skill.projects.all()
-    return render(request,'skill/skill-detail.html',{'skill':skill,'certifications':certifications,'projects':projects})
+    return render(request,'skills/skill-detail.html',{'skill':skill,'certifications':certifications,'projects':projects})

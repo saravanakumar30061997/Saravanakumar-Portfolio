@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Skills</h2>
-    <ul>
+<div class="container my-5">
+    <h2 class="fw-bold text-primary text-center mb-4">Skills</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for skill in skills %}
-        <li> <a href="{% url 'skills-detail' skills.id %}">{{ skill.name }}</a></li>
-    </ul>
-    
+            <div class="col">
+                <div class="card shadow-sm border-0 rounded-3">
+                    <div class="card-body text-center">
+                        <a href="{% url 'skills-detail' skill.id %}" class="text-decoration-none text-dark fw-semibold">
+                            {{ skill.name }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

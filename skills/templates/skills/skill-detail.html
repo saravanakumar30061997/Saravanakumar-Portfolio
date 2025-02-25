@@ -1,20 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>{{ skill.name }}</h2>
-    <p></p>
-    <h3>Certifications</h3>
-    <ul>
-        {% for cert in certifications %}
-            <li>{{cert.title}} - {{cert.description}}</li>
-        {% endfor %}
-    </ul>
-    <h3>Projects</h3>
-    <ul>
-        {% for pro in projects %}
-            <li>{{pro.title}} - {{pro.description}}</li>
-        {% endfor %}
-    </ul>
+<div class="container my-5">
+    <h2 class="fw-bold text-primary">{{ skill.name }}</h2>
 
-    <a href="{% url 'skills-list' %}">Back to Skills</a>
+    <!-- Certifications Section -->
+    <div class="card shadow-sm border-0 rounded-3 mt-4">
+        <div class="card-body">
+            <h3 class="text-success"><i class="fas fa-certificate"></i> Certifications</h3>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for cert in certifications %}
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="{{ cert.image.url }}" class="card-img-top rounded" alt="{{ cert.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ cert.title }}</h5>
+                                <p class="text-muted mb-0">{{ cert.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="card shadow-sm border-0 rounded-3 mt-4">
+        <div class="card-body">
+            <h3 class="text-success"><i class="fas fa-project-diagram"></i> Projects</h3>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for pro in projects %}
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="{{ pro.image.url }}" class="card-img-top rounded" alt="{{ pro.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ pro.title }}</h5>
+                                <p class="text-muted mb-0">{{ pro.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="{% url 'skills-list' %}" class="btn btn-outline-secondary mt-4">
+        <i class="fas fa-arrow-left"></i> Back to Skills
+    </a>
+</div>
 {% endblock %}
