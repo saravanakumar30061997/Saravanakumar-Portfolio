@@ -15,6 +15,7 @@
                             <img src="{{ cert.image.url }}" class="card-img-top rounded" alt="{{ cert.title }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ cert.title }}</h5>
+                                <p class="text-muted mb-0">{{ cert.description | truncatewords:10 }}</p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +35,7 @@
                             <img src="{{ pro.image.url }}" class="card-img-top rounded" alt="{{ pro.title }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ pro.title }}</h5>
-                                <p class="text-muted mb-0">{{ pro.description }}</p>
+                                <p class="text-muted mb-0">{{ pro.description | truncatewords:10 }}</p>
                             </div>
                         </div>
                     </div>
