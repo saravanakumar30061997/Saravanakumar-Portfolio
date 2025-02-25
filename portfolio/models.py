@@ -1,6 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-
+from skills.models import Skills
 
 # Create your models here.
 class PortfolioItem(models.Model):
@@ -9,6 +9,7 @@ class PortfolioItem(models.Model):
     ]
     title = models.CharField(max_length=100)
     item_type = models.CharField(max_length=20, choices=ITEM_TYPES, null=True)
+    skill = models.ForeignKey(Skills,on_delete=models.CASCADE,related_name='certifications',null=True)
     description = models.TextField(null=True, blank=True)
     image = CloudinaryField('portfolio')
     url = models.URLField(blank=True)

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ skill.name }}</h2>
+    <p></p>
+    <h3>Certifications</h3>
+    <ul>
+        {% for cert in certifications %}
+            <li>{{cert.title}} - {{cert.description}}</li>
+        {% endfor %}
+    </ul>
+    <h3>Projects</h3>
+    <ul>
+        {% for pro in projects %}
+            <li>{{pro.title}} - {{pro.description}}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'skills-list' %}">Back to Skills</a>
+{% endblock %}

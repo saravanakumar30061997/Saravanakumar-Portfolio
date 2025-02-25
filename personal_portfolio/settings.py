@@ -36,6 +36,7 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # Application definition
 INSTALLED_APPS = [
+    'skills.apps.SkillsConfig',
     'projects.apps.ProjectsConfig',
     'portfolio.apps.PortfolioConfig',
     'blog.apps.BlogConfig',
