@@ -33,12 +33,14 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY: Load secret key from .env
-SECRET_KEY = 'django-insecure-17-zb!gcyxwztuya_uizuvwgx3j8odg@)34twf7&xrn@rc4u_&'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY: Use DEBUG=True only for development
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 # SECURITY: Set allowed hosts
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1').split(',')
+
 # Application definition
 INSTALLED_APPS = [
     'skills.apps.SkillsConfig',
